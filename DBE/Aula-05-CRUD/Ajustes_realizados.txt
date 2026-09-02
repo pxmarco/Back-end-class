@@ -1,0 +1,18 @@
+## Ajustes realizados
+
+Correção no componente CadastroAluno.js: adicionado o preventDefault() no envio do formulário para evitar o recarregamento da página e garantir que a requisição via Axios seja enviada corretamente.
+Correção no componente ListaAlunos.js: substituição das chaves do mapeamento de index para aluno.id, melhorando a estabilidade do React e evitando problemas de renderização e manipulação de estado.
+Ajustes no servidor server.js: inclusão do parâmetro (req, res) na rota POST /register, além da resposta JSON com res.json(...) para confirmar o sucesso da requisição e permitir o correto recebimento pelo frontend.
+Configuração do servidor para executar na porta 3000, alinhando com as chamadas do cliente.
+Ajuste na conexão com o MySQL utilizando o mysql2 com o ambiente do XAMPP, garantindo a comunicação correta com o banco de dados.
+Instalação das dependências necessárias no backend, incluindo express, mysql2 e cors, por meio do npm.
+Ajuste no package.json para que o comando npm start execute corretamente o arquivo principal do servidor.
+Observações feitas
+Foi necessário corrigir o comportamento do formulário para evitar o reload automático do navegador.
+Foram ajustados os pontos de renderização do React para garantir melhor performance e identificação correta dos elementos.
+A rota de cadastro no backend foi revisada para incluir parâmetros e retorno de resposta adequados.
+A conexão com o banco foi validada e ajustada para o ambiente correto de execução.
+A configuração de portas e dependências foi revisada para compatibilizar frontend e backend.
+O projeto foi alinhado para funcionar de forma integrada entre cliente, servidor e banco de dados.
+Resultado
+A aplicação ficou com o fluxo de cadastro, listagem e comunicação com o banco funcionando de forma correta e consistente, com estrutura e integração ajustadas para o funcionamento do projeto.
