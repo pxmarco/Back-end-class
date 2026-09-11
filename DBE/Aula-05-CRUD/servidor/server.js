@@ -1,15 +1,25 @@
 const express = require("express");
 const app = express();
-const mysql = require('mysql2');//isso pegara a versão mais atual do mysql que instalamos
+const mysql = require('mysql2');
 const cors = require("cors");
 
 const db = mysql.createPool({
-    host:"localhost",
-    user:"root",
-    port:3307,
-    password:"",
-    database:"crudealunos"
-})
+    host: "localhost",
+    user: "root",
+    port: 3307,
+    password: "",
+    database: "crudealunos"
+});
+
+db.getConnection((err, connection) => {
+    if (err) {
+        console.warn("Banco de dados indisponível:", err.message);
+        return;
+    }
+
+    console.log("Conexão com o banco de dados estabelecida.");
+    connection.release();
+});
 
 /*app.get("/",(req, )=>{
     /*let SQL = "INSERT INTO alunos (id,nome, idade) VALUES (null,'Maria','28')";
@@ -85,6 +95,8 @@ app.put("/editar/:id", (req, res) => {
     });
   });  
 
-app.listen(3001,()=>{
-    console.log("rodando servidor");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
